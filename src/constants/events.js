@@ -2,6 +2,7 @@ import gdsj from "../Images/GCSJ_logo.webp";
 import FL from "../Images/figmaLifestyle_Logo(BG_white).jpeg";
 import SC_24 from "../Images/SolutionChallenge_2024.webp";
 import Pandas from "../Images/Pandas_9D3I4Kp.webp";
+import CrackWithGDSC from "../Images/CrackWGDSC.jpeg";
 
 const events = [
   {
@@ -42,6 +43,27 @@ const events = [
     learnMoreLink: "https://gdsc.community.dev/events/details/developer-student-clubs-gh-raisoni-college-of-engineering-nagpur-presents-intoduction-to-web3-and-blockchain/",
     registerLink: null,
   },
+  {
+    img: CrackWithGDSC,
+    title: "Crack with GDSC 4.0",
+    description: null,
+    startDate: new Date("2024-02-21"),
+    endDate: new Date("2024-03-16T24:00:00"),
+    location: "Virtual",
+    learnMoreLink: "https://gdsc.community.dev/events/details/developer-student-clubs-gh-raisoni-college-of-engineering-nagpur-presents-crack-with-gdsc-40/",
+    registerLink: null,
+  },
+  {
+    img: gdsj   ,
+    title: "Flutter and Fire",
+    description: null,
+    startDate: new Date("2024-02-25"),
+    endDate: new Date("2024-02-25T20:00:00"),
+    location: "Fireblaze building, Nagpur",
+    learnMoreLink: "https://gdsc.community.dev/events/details/developer-student-clubs-gh-raisoni-college-of-engineering-nagpur-presents-flutter-and-firebase/",
+    registerLink: null,
+  },
+  
 ];
 
 export default events;

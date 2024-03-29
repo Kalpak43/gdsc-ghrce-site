@@ -7,7 +7,7 @@ import img_3 from "../../Images/certificateImages/certificate-image-3.jpeg";
 import img_5 from "../../Images/certificateImages/certificate-image-5.jpeg";
 import img_6 from "../../Images/certificateImages/certificate-image-6.jpeg";
 
-export default function CloudStudyJamVolunteer () {
+export default function LimcaRecordVolunteer() {
     let { refID } = useParams();
 
     //   const [schedule, setSchedule] = useState([]);
@@ -19,25 +19,26 @@ export default function CloudStudyJamVolunteer () {
     let randomImg = imgArr[Math.floor(Math.random() * imgArr.length)];
   
     useEffect(() => {
+      const getData = async () => {
+        const { data } = await axios.get(
+          `https://script.google.com/macros/s/AKfycbwDQXtvK6ih3IO6ZsItTsaNNmjvseT0FMGi-fMpxiAI6HASW7Ltap7qOqVBblURQuU-xg/exec?Reference=${refID}`
+        );
+  
+        setFetched((x) => x + 1);
+  
+        setFetchedData((x) => [...x, ...data]);
+      };
+  
       getData();
-    }, []);
+    }, [refID]);
   
-    const getData = async () => {
-      const { data } = await axios.get(
-        `https://script.google.com/macros/s/AKfycbwm7tPnCfww-V5TC7QOoLN26-Q8aWe9K239DVI6K5VqCw-WgvXqLA-bbpF-6Roz6W9Bxg/exec?Reference=${refID}`
-      );
-  
-      setFetched((x) => x + 1);
-  
-      setFetchedData((x) => [...x, ...data]);
-    };
-  
-
     return (
-        <section className="Certificate-Page h-screen flex justify-center flex-col items-center gap-4">
+      <section className="Certificate-Page flex justify-center flex-col items-center gap-4">
         {fetched > 0 ? (
           fetchedData.length === 0 ? (
-            <p className="text-center">No Certificate Found. Try Refreshing the Page.</p>
+            <p className="text-center">
+              No Certificate Found. Try Refreshing the Page.
+            </p>
           ) : (
             <>
               <div className="h-40 aspect-square border-2 rounded-full">
@@ -52,21 +53,18 @@ export default function CloudStudyJamVolunteer () {
                 <p>{fetchedData[0].ID}</p>
                 <p>Name</p>
                 <p>{fetchedData[0].FullName}</p>
-                {/* {fetchedData[0].Email !== "NULL" && (
-                  <>
-                    <p>Email</p>
-                    <p>{fetchedData[0].Email}</p>
-                  </>
-                )} */}
                 <p>Date of Event</p>
-                <p>4 Sep - 2 Oct, 2023</p>
+                <p>20 Jan, 2024</p>
               </div>
-              <p className="font-xl">GDSC Thanks you for your contribution in the event.</p>
+              <p className="font-xl md:w-1/2 text-center p-2">
+                Thank You for attending the event. We hope you had a great time
+                and we look forward to seeing you again in our future events.
+              </p>
             </>
           )
         ) : (
           <div className="m-auto font-xl">Loading...</div>
         )}
       </section>
-    )
+    );
 }

@@ -1,5 +1,4 @@
 import payalImg from "../Images/members/PayalPande.webp"
-import divyamImg from "../Images/members/DivyamTembhare.jpg"
 import aryanImg from "../Images/members/AryanKulat.webp"
 import sumedhaImg from "../Images/members/SumedhaTambulkar.png"
 import krutikaImg from "../Images/members/KrutikaNavghare.png"
@@ -30,7 +29,6 @@ const team = [
     {
         "management" : [
             [payalImg, "Payal Pande", "Management Lead", "https://www.linkedin.com/in/payal-pande-29109a250/"],
-            [divyamImg, "Divyam Tembhare", "Management Co-Lead", "https://www.linkedin.com/in/divyam-tembhare-993124252/"],
             [aryanImg, "Aryan Kulat", "Public Relations Head", "https://www.linkedin.com/in/aryan-kulat-a3961b234/"],
             [sumedhaImg, "Sumedha Tambulkar", "Management Volunteer", "https://www.linkedin.com/in/sumedha-tambulkar-22562a229/"],
             [krutikaImg, "Krutika Navghare", "Management Volunteer", "https://www.linkedin.com/in/krutika-navghare-6a948b286/"]

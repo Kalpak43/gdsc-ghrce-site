@@ -33,7 +33,6 @@ export default function HacktoberfestVolunteer () {
       setFetchedData((x) => [...x, ...data]);
     };
   
-    console.log(fetchedData);
 
     return (
         <section className="Certificate-Page h-screen flex justify-center flex-col items-center gap-4">

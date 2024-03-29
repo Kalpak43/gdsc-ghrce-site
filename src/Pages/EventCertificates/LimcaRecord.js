@@ -7,7 +7,7 @@ import img_3 from "../../Images/certificateImages/certificate-image-3.jpeg";
 import img_5 from "../../Images/certificateImages/certificate-image-5.jpeg";
 import img_6 from "../../Images/certificateImages/certificate-image-6.jpeg";
 
-export default function CloudStudyJam() {
+export default function LimcaRecord() {
   let { refID } = useParams();
 
   //   const [schedule, setSchedule] = useState([]);
@@ -19,25 +19,26 @@ export default function CloudStudyJam() {
   let randomImg = imgArr[Math.floor(Math.random() * imgArr.length)];
 
   useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(
+        `https://script.google.com/macros/s/AKfycbwDQXtvK6ih3IO6ZsItTsaNNmjvseT0FMGi-fMpxiAI6HASW7Ltap7qOqVBblURQuU-xg/exec?Reference=${refID}`
+      );
+
+      setFetched((x) => x + 1);
+
+      setFetchedData((x) => [...x, ...data]);
+    };
+
     getData();
-  }, []);
-
-  const getData = async () => {
-    const { data } = await axios.get(
-      `https://script.google.com/macros/s/AKfycbxQhIFFnwf9i95UJNRMYiWyRWA4lExPooJjc-RqKCJwRTmJjXXETX00aqp1DcP8R6TUNQ/exec?Reference=${refID}`
-    );
-
-    setFetched((x) => x + 1);
-
-    setFetchedData((x) => [...x, ...data]);
-  };
-
+  }, [refID]);
 
   return (
-    <section className="Certificate-Page h-screen flex justify-center flex-col items-center gap-4">
+    <section className="Certificate-Page flex justify-center flex-col items-center gap-4">
       {fetched > 0 ? (
         fetchedData.length === 0 ? (
-          <p className="text-center">No Certificate Found. Try Refreshing the Page.</p>
+          <p className="text-center">
+            No Certificate Found. Try Refreshing the Page.
+          </p>
         ) : (
           <>
             <div className="h-40 aspect-square border-2 rounded-full">
@@ -51,16 +52,13 @@ export default function CloudStudyJam() {
               <p>Certificate ID</p>
               <p>{fetchedData[0].ID}</p>
               <p>Name</p>
-              <p>{fetchedData[0].NAME}</p>
-              <p>Email</p>
-              <p>{fetchedData[0].Email}</p>
+              <p>{fetchedData[0].FullName}</p>
               <p>Date of Event</p>
-              <p>4 Sep - 2 Oct, 2023</p>
+              <p>20 Jan, 2024</p>
             </div>
-            <p className="font-xl md:w-1/2 text-center">
-              GDSC Congratulates you for completing Google Cloud Study Jams,
-              organized by Google Developer Student Clubs, which covered
-              Generative AI and Google Cloud Computing Foundation.
+            <p className="font-xl md:w-1/2 text-center p-2">
+              Thank You for attending the event. We hope you had a great time
+              and we look forward to seeing you again in our future events.
             </p>
           </>
         )

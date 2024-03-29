@@ -2,7 +2,6 @@ import "./App.css";
 import {
   Route,
   BrowserRouter as Router,
-  RouterProvider,
   Routes,
 } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
@@ -26,6 +25,8 @@ import HacktoberfestVolunteer from "./Pages/EventCertificates/HacktoberfestVolun
 import CoreConfluenceVolunteer from "./Pages/EventCertificates/CoreConfluenceVolunteer";
 import SolutionChallenge from "./Pages/solution-challenge/SolutionChallenge";
 import ScrollToTop from "./Components/ScrollToTop";
+import CapxAttendees from "./Pages/EventCertificates/CapxAttendees";
+import LimcaRecord from "./Pages/EventCertificates/LimcaRecord";
 
 function App() {
 
@@ -65,6 +66,9 @@ function App() {
             <Route path="/events/cloud-study-jams/volunteer-certificate/:refID" element={<CloudStudyJamVolunteer />} />
             <Route path="/events/hacktoberfest/volunteer-certificate/:refID" element={<HacktoberfestVolunteer />} />
             <Route path="/events/core-confluence/volunteer-certificate/:refID" element={<CoreConfluenceVolunteer />} />
+            <Route path="/events/capx/attendee-certificate/:refID" element={<CapxAttendees />} />
+            <Route path="/events/limca-record/certificate/:refID" element={<LimcaRecord />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
 
           <Route path="/events/figma-lifestyle" element={<FigmaEvent />} />
@@ -72,7 +76,7 @@ function App() {
         </Routes>
       </Router>
       <button
-        className="switch border-2 h-12 aspect-square rounded-full fixed bottom-0 right-0 flex justify-center items-center m-4 mx-8"
+        className="switch btn hover:bg-gray-200 border-2 bg-[--bg-color] shadow-lg rounded-lg h-12 aspect-square fixed bottom-0 right-0 flex justify-center items-center m-4 mx-4"
         onClick={() => setDarkMode(!darkMode)}
       >
         {darkMode ? (

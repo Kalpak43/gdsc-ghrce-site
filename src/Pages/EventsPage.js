@@ -16,7 +16,7 @@ const EventsPage = () => {
 
     const newCurrEvents = eventsArr1
       .filter((event) => new Date(event.endDate) > new Date())
-      .sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+      .sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
     setCurrEvents(newCurrEvents);
   }, [eventsArr1]);
 

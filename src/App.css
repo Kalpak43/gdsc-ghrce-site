@@ -905,6 +905,10 @@ header .options {
 /* END FOOTER */
 
 /* Certificate Page */
+.Certificate-Page {
+  min-height: 90vh;
+}
+
 .Certificate-Page .grid {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(4, 1fr);
